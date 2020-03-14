@@ -89,7 +89,11 @@ jobs:
       if: failure()
       run: |
         cd openwrt
-        make -j1 V=s
+        make -j1 V=s | tee /tmp/openwrt-build.log
+
+    - name: Last fail log
+      if: failure()
+      run: tail -n 200 /tmp/openwrt-build.log
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
