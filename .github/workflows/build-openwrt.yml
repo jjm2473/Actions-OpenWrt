@@ -95,6 +95,10 @@ jobs:
       if: failure()
       run: tail -n 200 /tmp/openwrt-build.log
 
+    - name: Show Config
+      if: failure()
+      run: cat openwrt/.config
+
     - name: Upload bin directory
       uses: actions/upload-artifact@master
       if: always()
