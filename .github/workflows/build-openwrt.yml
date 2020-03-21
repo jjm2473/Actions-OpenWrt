@@ -89,7 +89,7 @@ jobs:
       if: failure()
       run: |
         cd openwrt
-        make -j1 V=s | tee /tmp/openwrt-build.log
+        make -j1 V=s 2>&1 | tee /tmp/openwrt-build.log
 
     - name: Last fail log
       if: failure()
