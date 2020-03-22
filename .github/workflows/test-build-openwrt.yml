@@ -93,6 +93,10 @@ jobs:
       if: failure()
       run: cat openwrt/.config
 
+    - name: List Target
+      if: always()
+      run: cd openwrt/bin && find targets
+
     - name: Upload bin directory
       uses: actions/upload-artifact@master
       if: always()
