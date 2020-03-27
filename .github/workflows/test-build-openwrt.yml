@@ -88,7 +88,9 @@ jobs:
 
     - name: Last fail log
       if: failure()
-      run: tail -n 200 /tmp/openwrt-build.log
+      run: |
+        tail -n 200 /tmp/openwrt-build.log
+        ls -l openwrt/build_dir/target-aarch64_cortex-a53_musl/linux-realtek_rtd129x
 
     - name: Show Config
       if: failure()
